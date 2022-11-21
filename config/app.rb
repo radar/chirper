@@ -1,0 +1,12 @@
+
+
+# frozen_string_literal: true
+
+require "hanami"
+require "graphql"
+
+module Chirper
+  class App < Hanami::App
+    config.middleware.use :body_parser, :json
+  end
+end
