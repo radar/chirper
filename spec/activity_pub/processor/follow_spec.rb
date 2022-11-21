@@ -1,5 +1,5 @@
 module Chirper
-  RSpec.describe ActivityPub::Processor do
+  RSpec.describe ActivityPub::Processor, type: :database do
     include Deps[actor_repo: "persistence.repos.actor"]
 
     let(:published) { "2022-11-20T19:43:18Z" }
