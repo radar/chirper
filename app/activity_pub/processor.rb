@@ -2,9 +2,8 @@ module Chirper
   module ActivityPub
     class Processor
       include Deps[
-        actor_repo: "persistence.repos.actor",
-        follow_repo: "persistence.repos.follow",
-        status_repo: "persistence.repos.status"
+        status_repo: "persistence.repos.status",
+        follow_processor: "activity_pub.processors.follow"
       ]
 
       def handle(activity)
@@ -15,13 +14,7 @@ module Chirper
             published: activity.published,
           )
         else
-          follower = actor_repo.find_or_create(activity.actor)
-          followee = actor_repo.find_or_create(activity.object)
-
-          follow_repo.add(
-            follower_id: follower.id,
-            followee_id: followee.id,
-          )
+          follow_processor.(activity.actor, activity.object)
         end
       end
     end

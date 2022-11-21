@@ -12,6 +12,7 @@ gem "hanami-cli", github: "hanami/cli"
 gem "dry-logger", github: "dry-rb/dry-logger"
 
 gem "dry-types", "~> 1.0", ">= 1.6.1"
+gem "dry-monads"
 gem "puma"
 gem "rake"
 

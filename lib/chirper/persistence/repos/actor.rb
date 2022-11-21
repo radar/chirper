@@ -7,8 +7,12 @@ module Chirper
         include Deps[container: "persistence.rom"]
         commands :create
 
+        def find_by_uri(uri)
+          actors.where(uri: uri).one
+        end
+
         def find_or_create(uri)
-          actors.where(uri: uri).one || create(uri: uri)
+          find_by_uri(uri) || create(uri: uri)
         end
       end
     end

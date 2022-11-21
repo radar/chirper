@@ -4,6 +4,7 @@
 
 require "hanami"
 require "graphql"
+require "dry/monads"
 
 module Chirper
   class App < Hanami::App
