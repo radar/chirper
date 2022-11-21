@@ -4,7 +4,7 @@ module Chirper
 
     let(:published) { "2022-11-20T19:43:18Z" }
     let(:activity) do
-      ActivityPub::Activity.new(
+      ActivityPub::Create.new(
         "type": "Create",
         "actor": "https://ruby.social/users/Ryanbigg",
         "published": published,
