@@ -5,7 +5,7 @@ module Chirper
     module Graphql
       class Execute < Chirper::Action
         def handle(req, response)
-          result = Chirper::Graphql::Schema.execute(query: req.params[:query])
+          result = Chirper::Graphql::Schema.execute(query: req.params[:query], variables: req.params[:variables])
           response.format = :json
           response.body = result.to_json
         end
