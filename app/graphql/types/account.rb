@@ -1,7 +1,7 @@
 module Chirper
   module Graphql
     module Types
-      class Actor < Types::BaseObject
+      class Account < Types::BaseObject
         field :uri, String
       end
     end

@@ -1,6 +1,6 @@
 module Chirper
   RSpec.describe ActivityPub::Processor, type: :database do
-    include Deps[actor_repo: "persistence.repos.actor"]
+    include Deps[account_repo: "persistence.repos.account"]
 
     let(:published) { "2022-11-20T19:43:18Z" }
     let(:activity) do
@@ -13,7 +13,7 @@ module Chirper
 
     context "when object exists as an actor" do
       before do
-        actor_repo.create(uri: "https://ruby.social/users/matz")
+        account_repo.create(uri: "https://ruby.social/users/matz")
       end
 
       it "loads a Follow activity into the DB" do

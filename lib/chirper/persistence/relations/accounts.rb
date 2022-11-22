@@ -1,8 +1,8 @@
 module Chirper
   module Persistence
     module Relations
-      class Actors < ROM::Relation[:sql]
-        schema(:actors, infer: true)
+      class Accounts < ROM::Relation[:sql]
+        schema(:accounts, infer: true)
       end
     end
   end

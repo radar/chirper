@@ -9,7 +9,7 @@ const timelineQuery = graphql(`
     timeline {
       id
       content
-      actor {
+      account {
         uri
       }
     }
@@ -22,13 +22,13 @@ type TimelineProps = {
 
 type StatusProps = NonNullable<TimelineQuery["timeline"][0]>;
 
-const Status = ({ actor, content }: StatusProps) => {
+const Status = ({ account, content }: StatusProps) => {
   return (
     <div className="border-b border-gray-600 py-2 px-4">
       <div className="flex items-center mb-2">
         <div className="w-[46px] h-[46px] bg-blue-400 mr-2 rounded-sm" />
         <bdi className="block">Display name</bdi>
-        <div>{actor.uri}</div>
+        <div>{account.uri}</div>
       </div>
       {content}
     </div>

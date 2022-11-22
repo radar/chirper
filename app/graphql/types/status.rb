@@ -5,7 +5,7 @@ module Chirper
         field :id, ID, null: false
         field :content, String, null: false
 
-        field :actor, Types::Actor, null: false
+        field :account, Types::Account, null: false
       end
     end
   end

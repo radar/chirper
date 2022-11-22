@@ -8,7 +8,7 @@ module Chirper
         commands :create
 
         def timeline
-          statuses.combine(:actor).order(statuses[:published].desc)
+          statuses.combine(:account).order(statuses[:published].desc)
         end
       end
     end

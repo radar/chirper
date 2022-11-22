@@ -2,7 +2,7 @@
 
 ROM::SQL.migration do
   change do
-    create_table :actors do
+    create_table :accounts do
       primary_key :id
       column :uri, :text, null: false
     end

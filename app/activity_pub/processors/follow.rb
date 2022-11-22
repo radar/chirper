@@ -4,7 +4,7 @@ module Chirper
       class Follow
         include Dry::Monads[:result, :do]
         include Deps[
-          actor_repo: "persistence.repos.actor",
+          account_repo: "persistence.repos.account",
           follow_repo: "persistence.repos.follow",
         ]
 
@@ -15,12 +15,12 @@ module Chirper
         end
 
         def find_followee(followee)
-          actor = actor_repo.find_by_uri(followee)
+          actor = account_repo.find_by_uri(followee)
           actor ? Success(actor) : Failure("Could not find actor for uri=#{followee}")
         end
 
         def find_or_create_follower(follower)
-          Success(actor_repo.find_or_create(follower))
+          Success(account_repo.find_or_create(follower))
         end
 
         def create_follow(followee, follower)
