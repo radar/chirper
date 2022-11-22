@@ -4,7 +4,7 @@ module Chirper
   module Graphql
     class Schema < GraphQL::Schema
 
-      # query Types::QueryType
+      query Types::QueryType
       mutation Types::MutationType
     end
   end
