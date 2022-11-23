@@ -4,6 +4,7 @@ module Chirper
       attribute :type, Types::String.constrained(eql: "Note")
       attribute :content, Types::String
       attribute :published, Types::Params::DateTime
+      attribute :attributedTo, Types::String
     end
   end
 end
