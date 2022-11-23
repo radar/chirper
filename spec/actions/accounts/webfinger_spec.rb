@@ -2,7 +2,7 @@
 
 module Chirper
   RSpec.describe Actions::Accounts::Webfinger do
-    include Deps[account_repo: "persistence.repos.account"]
+    include Deps["persistence.repos.account_repo"]
 
     context "when account is not known" do
       let(:params) { { id: "newaccount@who.dis" } }

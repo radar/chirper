@@ -4,7 +4,7 @@ module Chirper
   module Actions
     module Accounts
       class Webfinger < Chirper::Action
-        include Deps[account_repo: "persistence.repos.account"]
+        include Deps["persistence.repos.account_repo"]
 
         def handle(request, response)
           account = account_repo.find_by_address(request.params[:id])
