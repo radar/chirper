@@ -5,76 +5,12 @@ GIT
     dry-logger (1.0.0)
 
 GIT
-  remote: https://github.com/hanami/cli.git
-  revision: 56aa08a6e5444ffd6f416eba79be8c7c74324b55
-  specs:
-    hanami-cli (2.0.0)
-      bundler (~> 2.1)
-      dry-cli (~> 1.0, < 2)
-      dry-files (~> 1.0, < 2)
-      dry-inflector (~> 1.0, < 2)
-      rake (~> 13.0)
-      zeitwerk (~> 2.6)
-
-GIT
-  remote: https://github.com/hanami/controller.git
-  revision: dc5bb2a1db48b0ccf3faf52aac20eaef0fd135a3
-  specs:
-    hanami-controller (2.0.0)
-      dry-configurable (~> 1.0, < 2)
-      dry-core (~> 1.0)
-      hanami-utils (~> 2.0)
-      rack (~> 2.0)
-      zeitwerk (~> 2.6)
-
-GIT
-  remote: https://github.com/hanami/hanami.git
-  revision: 7fd0f4686708d9aac231591fd59a942675238563
-  specs:
-    hanami (2.0.0)
-      bundler (>= 1.16, < 3)
-      dry-configurable (~> 1.0, < 2)
-      dry-core (~> 1.0, < 2)
-      dry-inflector (~> 1.0, < 2)
-      dry-logger (~> 1.0, < 2)
-      dry-monitor (~> 1.0, >= 1.0.1, < 2)
-      dry-system (~> 1.0, < 2)
-      hanami-cli (~> 2.0)
-      hanami-utils (~> 2.0)
-      zeitwerk (~> 2.6)
-
-GIT
   remote: https://github.com/hanami/reloader.git
   revision: 00a4e91d012c7d877578907daf9de45878c16832
   specs:
     hanami-reloader (2.0.0)
       hanami-cli (~> 2.0)
       zeitwerk (~> 2.6)
-
-GIT
-  remote: https://github.com/hanami/router.git
-  revision: 03a4cad90634850d7a3f37f4f7f9761965335480
-  specs:
-    hanami-router (2.0.0)
-      mustermann (~> 1.0)
-      mustermann-contrib (~> 1.0)
-      rack (~> 2.0)
-
-GIT
-  remote: https://github.com/hanami/utils.git
-  revision: eea867f9f664c89a8e3523d3b1278b20425045a4
-  specs:
-    hanami-utils (2.0.0)
-      concurrent-ruby (~> 1.0)
-      dry-transformer (~> 1.0, < 2)
-
-GIT
-  remote: https://github.com/hanami/validations.git
-  revision: 4f82d23c461186d269e716530458cf7c687321e9
-  specs:
-    hanami-validations (2.0.0)
-      dry-validation (>= 1.10, < 2)
-      zeitwerk (~> 2.6.0)
 
 GEM
   remote: https://rubygems.org/
@@ -100,7 +36,7 @@ GEM
     dry-events (1.0.1)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
-    dry-files (1.0.0)
+    dry-files (1.0.1)
     dry-inflector (1.0.0)
     dry-initializer (3.1.1)
     dry-logic (1.4.0)
@@ -164,10 +100,44 @@ GEM
       guard (~> 2.14)
       guard-compat (~> 1.2)
       puma (>= 4.0, < 7)
+    hanami (2.0.0)
+      bundler (>= 1.16, < 3)
+      dry-configurable (~> 1.0, < 2)
+      dry-core (~> 1.0, < 2)
+      dry-inflector (~> 1.0, < 2)
+      dry-logger (~> 1.0, < 2)
+      dry-monitor (~> 1.0, >= 1.0.1, < 2)
+      dry-system (~> 1.0, < 2)
+      hanami-cli (~> 2.0)
+      hanami-utils (~> 2.0)
+      zeitwerk (~> 2.6)
+    hanami-cli (2.0.0)
+      bundler (~> 2.1)
+      dry-cli (~> 1.0, < 2)
+      dry-files (~> 1.0, >= 1.0.1, < 2)
+      dry-inflector (~> 1.0, < 2)
+      rake (~> 13.0)
+      zeitwerk (~> 2.6)
+    hanami-controller (2.0.0)
+      dry-configurable (~> 1.0, < 2)
+      dry-core (~> 1.0)
+      hanami-utils (~> 2.0)
+      rack (~> 2.0)
+      zeitwerk (~> 2.6)
+    hanami-router (2.0.0)
+      mustermann (~> 1.0)
+      mustermann-contrib (~> 1.0)
+      rack (~> 2.0)
     hanami-rspec (3.11.0.beta4)
       hanami-cli (~> 2.0.0.beta)
       rake (~> 13.0)
       rspec (~> 3.11)
+    hanami-utils (2.0.0)
+      concurrent-ruby (~> 1.0)
+      dry-transformer (~> 1.0, < 2)
+    hanami-validations (2.0.0)
+      dry-validation (>= 1.10, < 2)
+      zeitwerk (~> 2.6.0)
     hansi (0.2.1)
     ice_nine (0.11.2)
     listen (3.7.1)
@@ -255,14 +225,14 @@ DEPENDENCIES
   dry-types (~> 1.0, >= 1.6.1)
   graphql (~> 2.0)
   guard-puma
-  hanami!
-  hanami-cli!
-  hanami-controller!
+  hanami (~> 2.0)
+  hanami-cli (~> 2.0)
+  hanami-controller (~> 2.0)
   hanami-reloader!
-  hanami-router!
+  hanami-router (~> 2.0)
   hanami-rspec
-  hanami-utils!
-  hanami-validations!
+  hanami-utils (~> 2.0)
+  hanami-validations (~> 2.0)
   pg
   pry
   puma

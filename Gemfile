@@ -2,12 +2,12 @@
 
 source "https://rubygems.org"
 
-gem "hanami", github: "hanami/hanami"
-gem "hanami-router", github: "hanami/router"
-gem "hanami-controller", github: "hanami/controller"
-gem "hanami-validations", github: "hanami/validations"
-gem "hanami-utils", github: "hanami/utils"
-gem "hanami-cli", github: "hanami/cli"
+gem "hanami", "~> 2.0"
+gem "hanami-router", "~> 2.0"
+gem "hanami-controller", "~> 2.0"
+gem "hanami-validations", "~> 2.0"
+gem "hanami-utils", "~> 2.0"
+gem "hanami-cli", "~> 2.0"
 
 gem "dry-logger", github: "dry-rb/dry-logger"
 
