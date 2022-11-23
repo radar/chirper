@@ -4,7 +4,7 @@ module Chirper
       module Queries
         class Timeline < GraphQL::Schema::Resolver
           type [Types::Status], null: false
-          include Deps[status_repo: "persistence.repos.status"]
+          include Deps["persistence.repos.status_repo"]
 
           def resolve
             status_repo.timeline

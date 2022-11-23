@@ -3,7 +3,7 @@ module Chirper
     module Types
       module Queries
         class Status < GraphQL::Schema::Resolver
-          include Deps[status_repo: "persistence.repos.status"]
+          include Deps["persistence.repos.status_repo"]
 
           type Types::Status, null: false
 

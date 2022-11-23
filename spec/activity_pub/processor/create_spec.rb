@@ -1,6 +1,6 @@
 module Chirper
   RSpec.describe ActivityPub::Processor do
-    include Deps[status_repo: "persistence.repos.status"]
+    include Deps["persistence.repos.status_repo"]
 
     let(:published) { "2022-11-20T19:43:18Z" }
     let(:activity) do

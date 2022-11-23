@@ -1,7 +1,7 @@
 module Chirper
   module Operations
     class PostStatus
-      include Deps[status_repo: "persistence.repos.status"]
+      include Deps["persistence.repos.status_repo"]
 
       def call(params)
         status_repo.create(params.merge(published: Time.now))

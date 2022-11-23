@@ -4,8 +4,8 @@ module Chirper
       class Follow
         include Dry::Monads[:result, :do]
         include Deps[
-          account_repo: "persistence.repos.account",
-          follow_repo: "persistence.repos.follow",
+          "persistence.repos.account_repo",
+          "persistence.repos.follow_repo",
         ]
 
         def call(follower, followee)

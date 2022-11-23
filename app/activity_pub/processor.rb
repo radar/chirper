@@ -2,7 +2,7 @@ module Chirper
   module ActivityPub
     class Processor
       include Deps[
-        status_repo: "persistence.repos.status",
+        "persistence.repos.status_repo",
         follow_processor: "activity_pub.processors.follow"
       ]
 
