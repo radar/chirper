@@ -5,6 +5,7 @@ module Chirper
         include GraphQL::Types::Relay::HasNodeField
         include GraphQL::Types::Relay::HasNodesField
 
+        field :account, resolver: Queries::Account
         field :status, resolver: Queries::Status
         field :timeline, resolver: Queries::Timeline
       end
