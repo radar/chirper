@@ -10,7 +10,7 @@ module Chirper
           argument :content, String, required: true
 
           def resolve(content:)
-            post_status.call(content: content)
+            post_status.call(account_id: context[:current_account_id], content: content)
           end
         end
       end
