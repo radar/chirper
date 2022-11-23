@@ -1,6 +1,10 @@
 module Chirper
-  RSpec.describe ActivityPub::Processor do
-    include Deps["persistence.repos.status_repo"]
+  RSpec.describe ActivityPub::Processors::Create do
+    include Deps["persistence.repos.status_repo", "persistence.repos.account_repo"]
+
+    let(:account_repo) { double(Persistence::Repos::Account) }
+    let(:status_repo) { double(Persistence::Repos::Status) }
+    subject { described_class.new(account_repo: account_repo, status_repo: status_repo) }
 
     let(:published) { "2022-11-20T19:43:18Z" }
     let(:activity) do
@@ -34,15 +38,34 @@ module Chirper
       )
     end
 
-    it "loads a Create -> Note activity as a status" do
-      status = subject.handle(activity)
-      expect(status).to be_a(Chirper::Status)
+    context "for a known account" do
+      let(:account) { Account.new(id: 1, uri: "https://ruby.social/users/Ryanbigg") }
+      let(:status) { Status.new }
+      before do
+        allow(account_repo).to receive(:find_by_uri) { account }
+      end
 
-      expect(status.content).not_to be_nil
-      expect(status.published).to eq(Time.parse(published))
+      it "loads a Create -> Note activity as a status" do
+        expect(status_repo).to receive(:create).with(
+          account_id: account.id,
+          content: activity.object.content,
+          published: activity.published,
+        ) { status }
+        result = subject.call(activity)
+        expect(result).to be_success
+      end
+    end
 
+    context "for an unknown account" do
+      before do
+        allow(account_repo).to receive(:find_by_uri) { nil }
+      end
 
-
+      it "does not load the activity" do
+        expect(status_repo).not_to receive(:create)
+        result = subject.call(activity)
+        expect(result).to be_failure
+      end
     end
   end
 end
