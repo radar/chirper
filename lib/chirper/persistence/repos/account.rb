@@ -7,6 +7,10 @@ module Chirper
         include Deps[container: "persistence.rom"]
         commands :create
 
+        def find_by_address(address)
+          accounts.where(address: address).one
+        end
+
         def find_by_uri(uri)
           accounts.where(uri: uri).one
         end

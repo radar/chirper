@@ -7,5 +7,6 @@ module Chirper
     options "/graphql", to: "graphql.execute"
 
     post "/api/users/:username/inbox", to: "api.users.inbox"
+    get "/.well-known/webfinger", to: "accounts.webfinger"
   end
 end

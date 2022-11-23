@@ -9,5 +9,7 @@ require "dry/monads"
 module Chirper
   class App < Hanami::App
     config.middleware.use :body_parser, :json
+
+    config.base_url = "http://chirper.dev"
   end
 end
