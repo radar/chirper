@@ -2,7 +2,7 @@
 module Chirper
   module Actions
     module API
-      module Users
+      module Accounts
         class Inbox < Chirper::Action
           include Deps["activity_pub.processor"]
           def handle(request, response)

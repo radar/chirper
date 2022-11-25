@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "/api/users/:username/inbox", type: :request do
+RSpec.describe "/api/accounts/:username/inbox", type: :request do
   it "is successful" do
     body = {
       "id": "https://ruby.social/users/Ryanbigg/statuses/109377840652300161/activity",
@@ -32,7 +32,7 @@ RSpec.describe "/api/users/:username/inbox", type: :request do
       }
     }
 
-    post "/api/users/radar/inbox", body.to_json, 'CONTENT_TYPE' => 'application/json'
+    post "/api/accounts/radar/inbox", body.to_json, 'CONTENT_TYPE' => 'application/json'
 
     expect(last_response).to be_successful
     expect(JSON.parse(last_response.body)).to eq("ok" => true)
