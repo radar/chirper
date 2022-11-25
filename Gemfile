@@ -19,6 +19,7 @@ gem "rake"
 group :development, :test do
   gem "dotenv"
   gem "pry"
+  gem "factory_bot"
 end
 
 group :cli, :development do
