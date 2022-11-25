@@ -8,5 +8,7 @@ module Chirper
 
     post "/api/users/:username/inbox", to: "api.users.inbox"
     get "/.well-known/webfinger", to: "accounts.webfinger"
+
+    get "/@:id", to: "accounts.show", as: :account
   end
 end

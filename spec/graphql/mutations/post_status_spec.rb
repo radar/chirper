@@ -4,7 +4,7 @@ module Chirper
   RSpec.describe Graphql::Schema, type: :database do
     include Deps["persistence.repos.account_repo"]
 
-    let(:account) { account_repo.create(uri: "https://chirper.dev/@ryanbigg") }
+    let(:account) { account_repo.create(uri: "https://chirper.dev/@ryanbigg", display_name: "Ryan Bigg") }
 
     it "is successful" do
       query = <<~QUERY

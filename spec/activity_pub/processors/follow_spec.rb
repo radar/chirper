@@ -13,7 +13,7 @@ module Chirper
 
     context "when object exists as an actor" do
       before do
-        account_repo.create(uri: "https://ruby.social/users/matz")
+        account_repo.create(uri: "https://ruby.social/users/matz", display_name: "Matz")
       end
 
       it "loads a Follow activity into the DB" do
