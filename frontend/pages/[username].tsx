@@ -1,7 +1,8 @@
 import React from "react";
+import Account from "../components/account";
 
 const AccountProfile = () => {
-  return <div>An account.</div>;
+  return <Account />;
 };
 
 export default AccountProfile;
