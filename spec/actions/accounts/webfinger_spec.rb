@@ -14,7 +14,7 @@ module Chirper
     end
 
     context "when account is known" do
-      let(:account) { account_repo.create(address: "ryanbigg@chirper.dev", uri: "http://chirper.dev/@ryanbigg") }
+      let(:account) { account_repo.create(address: "ryanbigg@chirper.dev", uri: "http://chirper.dev/@ryanbigg", display_name: "Ryan Bigg") }
       let(:params) { { id: account.address } }
 
       it "returns data on the account" do
@@ -31,7 +31,7 @@ module Chirper
           expect(result["links"]).to include({
             "rel" => "self",
             "type" => "application/activity+json",
-            "href" => "http://chirper.dev/accounts/ryanbigg@chirper.dev"
+            "href" => "http://chirper.dev/@ryanbigg"
           })
           expect(result["links"]).to include({
             "rel" => "http://ostatus.org/schema/1.0/subscribe",

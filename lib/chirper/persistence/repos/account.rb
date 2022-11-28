@@ -16,7 +16,7 @@ module Chirper
         end
 
         def find_or_create(uri)
-          find_by_uri(uri) || create(uri: uri)
+          find_by_uri(uri) || create(uri: uri, display_name: uri)
         end
       end
     end

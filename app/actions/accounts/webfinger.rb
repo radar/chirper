@@ -21,12 +21,12 @@ module Chirper
               {
                 rel: "http://webfinger.net/rel/profile-page",
                 type: "text/html",
-                href: account.uri
+                href: routes.url(:account, username: account.local_address)
               },
               {
                 rel: "self",
                 type: "application/activity+json",
-                href:  routes.url(:account, id: account.address)
+                href:  routes.url(:account, username: account.local_address)
               },
               {
                 rel: "http://ostatus.org/schema/1.0/subscribe",

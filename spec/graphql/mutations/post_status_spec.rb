@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Chirper
-  RSpec.describe Graphql::Schema, type: :database do
+  RSpec.describe Graphql::Schema, database: true do
     include Deps["persistence.repos.account_repo"]
 
-    let(:account) { account_repo.create(uri: "https://chirper.dev/@ryanbigg") }
+    let(:account) { account_repo.create(uri: "https://chirper.dev/@ryanbigg", display_name: "Ryan Bigg") }
 
     it "is successful" do
       query = <<~QUERY
@@ -25,7 +25,7 @@ module Chirper
       )
 
       expect(result["errors"]).to be_nil
-      expect(result.dig("data", "postStatus", "id")).to eq("1")
+      expect(result.dig("data", "postStatus", "id")).to_not be_nil
     end
   end
 end

@@ -11,6 +11,8 @@ const timelineQuery = graphql(`
       content
       account {
         uri
+        formattedAddress
+        displayName
       }
     }
   }
@@ -22,13 +24,20 @@ type TimelineProps = {
 
 type StatusProps = NonNullable<TimelineQuery["timeline"][0]>;
 
-const Status = ({ account, content }: StatusProps) => {
+const Status = ({
+  account: { displayName, formattedAddress },
+  content,
+}: StatusProps) => {
   return (
     <div className="border-b border-gray-600 py-2 px-4">
       <div className="flex items-center mb-2">
         <div className="w-[46px] h-[46px] bg-blue-400 mr-2 rounded-sm" />
-        <bdi className="block">Display name</bdi>
-        <div>{account.uri}</div>
+        <div className="inline-block">
+          <bdi>{displayName}</bdi>
+          <div>
+            <span className="text-gray-500">{formattedAddress}</span>
+          </div>
+        </div>
       </div>
       {content}
     </div>

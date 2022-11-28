@@ -39,7 +39,7 @@ module Chirper
     end
 
     context "for a known account" do
-      let(:account) { Account.new(id: 1, uri: "https://ruby.social/users/Ryanbigg") }
+      let(:account) { Account.new(id: 1, uri: "https://ruby.social/users/Ryanbigg", address: "@Ryanbigg") }
       let(:status) { Status.new }
       before do
         allow(account_repo).to receive(:find_by_uri) { account }
